@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.0/animate.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+      new WOW().init();
+    </script>
+    <title>Уличная карта CQB</title>
+  </head>
+  <style>
+    .slider-catalog .slick-slide {
+      margin: 0 10px;
+    }
+
+    .social_wrapperz {
+      right: 0;
+      width: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      display: none;
+      position: fixed;
+      top: 50%;
+      transform: translateY(-100%);
+      z-index: 50;
+    }
+    .social_wrapperz {
+      right: 30px;
+      bottom: 0;
+      width: auto;
+      display: flex;
+      /* flex-direction: column; */
+      /* align-items: flex-end; */
+      top: unset;
+      transform: none;
+    }
+    .social_wrapperz {
+      position: fixed;
+      /* transform: translateY(80%); */
+      z-index: 100;
+    }
+    .social_wrapperz a {
+      margin-bottom: 20px;
+    }
+    .social_wrapperz img {
+      width: 56px;
+      z-index: 100;
+    }
+    .social_wrapperz a::before {
+      box-sizing: content-box;
+      /* border: 2px solid #007C39; */
+      width: 95px;
+      height: 95px;
+      top: -20px;
+      left: -20px;
+      position: absolute;
+      border-radius: 100%;
+      opacity: 0.5;
+      transition: all 0.5s ease 0s;
+      content: "";
+      animation: 2.4s ease-in-out 0s infinite normal none running circle-anim !important;
+      width: 55px;
+      height: 55px;
+      top: -5.5px;
+      left: -6px;
+    }
+    .social_wrapperz a::after {
+      content: "";
+      box-sizing: content-box;
+      background-color: #007c39;
+      position: absolute;
+      border-radius: 100%;
+      border: 2px solid transparent;
+      animation: 2.3s ease-in-out 0s infinite normal none running
+        circle-fill-anim;
+      transition: all 0.5s ease 0s;
+      z-index: 1;
+      width: 65px;
+      height: 65px;
+      top: -10.5px;
+      left: -9.5px;
+    }
+
+    .mobhometel {
+      font-size: 0px;
+      position: fixed;
+      right: 20px;
+      bottom: 30px;
+      z-index: 9;
+      border-radius: 50%;
+      display: block;
+      width: 40px;
+      height: 40px;
+      background: #007c39;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .mobhometel::before {
+      box-sizing: content-box;
+      border: 2px solid #007c39;
+      width: 95px;
+      height: 95px;
+      top: -20px;
+      left: -20px;
+      position: absolute;
+      border-radius: 100%;
+      opacity: 0.5;
+      transition: all 0.5s ease 0s;
+      content: "";
+      animation: 2.4s ease-in-out 0s infinite normal none running circle-anim !important;
+      width: 55px;
+      height: 55px;
+      top: -9.5px;
+      left: -9.5px;
+    }
+    .mobhometel::after {
+      content: "";
+      box-sizing: content-box;
+      background-color: #007c39;
+      position: absolute;
+      border-radius: 100%;
+      border: 2px solid transparent;
+      animation: 2.3s ease-in-out 0s infinite normal none running
+        circle-fill-anim;
+      transition: all 0.5s ease 0s;
+      z-index: 1;
+      width: 65px;
+      height: 65px;
+      top: -14.5px;
+      left: -14.5px;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(0.9);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(0.9);
+        opacity: 1;
+      }
+    }
+    @-webkit-keyframes pulse {
+      0% {
+        transform: scale(0.95);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(0.95);
+        opacity: 1;
+      }
+    }
+    @keyframes tossing {
+      0% {
+        transform: rotate(-8deg);
+      }
+      50% {
+        transform: rotate(8deg);
+      }
+      100% {
+        transform: rotate(-8deg);
+      }
+    }
+    @-webkit-keyframes tossing {
+      0% {
+        transform: rotate(-8deg);
+      }
+      50% {
+        transform: rotate(8deg);
+      }
+      100% {
+        transform: rotate(-8deg);
+      }
+    }
+    @-webkit-keyframes circle-anim {
+      0% {
+        transform: rotate(0deg) scale(0.5) skew(1deg);
+        opacity: 0.1;
+      }
+      30% {
+        transform: rotate(0deg) scale(0.7) skew(1deg);
+        opacity: 0.5;
+      }
+      100% {
+        transform: rotate(0deg) scale(1) skew(1deg);
+        opacity: 0.1;
+      }
+    }
+    @keyframes circle-anim {
+      0% {
+        transform: rotate(0deg) scale(0.5) skew(1deg);
+        opacity: 0.1;
+      }
+      30% {
+        transform: rotate(0deg) scale(0.7) skew(1deg);
+        opacity: 0.5;
+      }
+      100% {
+        transform: rotate(0deg) scale(1) skew(1deg);
+        opacity: 0.1;
+      }
+    }
+    @-webkit-keyframes circle-fill-anim {
+      0% {
+        transform: rotate(0deg) scale(0.7) skew(1deg);
+        opacity: 0.2;
+      }
+      50% {
+        transform: rotate(0deg) scale(1) skew(1deg);
+        opacity: 0.2;
+      }
+      100% {
+        transform: rotate(0deg) scale(0.7) skew(1deg);
+        opacity: 0.2;
+      }
+    }
+    @keyframes circle-fill-anim {
+      0% {
+        transform: rotate(0deg) scale(0.7) skew(1deg);
+        opacity: 0.2;
+      }
+      50% {
+        transform: rotate(0deg) scale(1) skew(1deg);
+        opacity: 0.2;
+      }
+      100% {
+        transform: rotate(0deg) scale(0.7) skew(1deg);
+        opacity: 0.2;
+      }
+    }
+
+    .social_wrapperz a.social_wrapperz_tel::after {
+      background: #86c232;
+    }
+
+    .social_wrapperz a {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      position: relative;
+    }
+
+    .social_wrapperz a.social_wrapperz_tel {
+      background: #86c232;
+    }
+
+    .delay-1 {
+      animation-delay: 0.25s;
+    }
+    .delay-2 {
+      animation-delay: 0.5s;
+    }
+    .delay-3 {
+      animation-delay: 0.75s;
+    }
+    .delay-4 {
+      animation-delay: 1s;
+    }
+    .delay-5 {
+      animation-delay: 1.5s;
+    }
+  </style>
+  <body class="bg-[#1B1F22] text-white font-['Montserrat']">
+    <div class="social_wrapperz">
+      <a href="tel:+7 701 575 5333" class="social_wrapperz_tel">
+        <svg
+          width="18"
+          height="19"
+          viewBox="0 0 18 19"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M17.519 12.9623L14.0436 11.2246C13.8805 11.1432 13.6959 11.1152 13.5159 11.1445C13.336 11.1738 13.1698 11.259 13.041 11.388L11.5857 12.8433C9.49435 12.5071 6.19881 9.21239 5.86344 7.12107L7.31876 5.66576C7.44774 5.5369 7.53292 5.37074 7.56223 5.19079C7.59155 5.01085 7.56351 4.82624 7.4821 4.66311L5.74441 1.18772C5.68752 1.07381 5.60629 0.973783 5.50647 0.894734C5.40665 0.815686 5.29067 0.759545 5.16675 0.730284C5.04282 0.701023 4.91398 0.699358 4.78934 0.725406C4.6647 0.751454 4.54731 0.804579 4.44548 0.881021L0.970097 3.48756C0.86219 3.56849 0.774607 3.67343 0.714285 3.79408C0.653963 3.91472 0.622559 4.04775 0.622559 4.18264C0.622559 12.4975 6.20924 18.0842 14.5241 18.0842C14.659 18.0842 14.792 18.0528 14.9127 17.9924C15.0333 17.9321 15.1382 17.8445 15.2192 17.7366L17.8257 14.2613C17.9022 14.1594 17.9553 14.042 17.9813 13.9174C18.0074 13.7928 18.0057 13.6639 17.9765 13.54C17.9472 13.4161 17.891 13.3001 17.812 13.2003C17.733 13.1004 17.6329 13.0192 17.519 12.9623Z"
+            fill="#fff"
+          ></path>
+        </svg>
+      </a>
+    </div>
+    <div
+      class="container px-3.5 md:px-0 sm: py-0 md:w-full md:py-0 lg:w-full mx-auto"
+    >
+      <div class="block1 flex items-center justify-between mt-5">
+        <a href="index.html" class="w-40 flex items-center justify-center">
+          <img class="w-full" src="images/logo barys.png" alt="" />
+        </a>
+        <ul class="hidden xl:flex flex items-center justify-between">
+          <a href="index.html" class="">
+            <li class="text-lg font-bold uppercase">площадки</li>
+          </a>
+
+          <a href="strikeball.html" class="ml-5">
+            <li class="text-lg font-normal uppercase">страйкбол</li>
+          </a>
+
+          <a href="paintball.html" class="ml-5">
+            <li class="text-lg font-normal uppercase">пейнтбол</li>
+          </a>
+
+          <a href="lazertag.html" class="ml-5">
+            <li class="text-lg font-normal uppercase">лазертаг</li>
+          </a>
+
+          <a href="orbiz.html" class="ml-5">
+            <li class="text-lg font-normal uppercase">орбиз</li>
+          </a>
+
+          <!-- <a href="" class="ml-5">
+            <li class="text-lg font-normal uppercase">услуги</li>
+          </a> -->
+
+          <a href="" class="ml-5">
+            <li class="text-lg font-normal uppercase">игры</li>
+          </a>
+        </ul>
+
+        <div class="hidden xl:flex flex items-center">
+          <a
+            href="https://wa.me/+77015755333"
+            target="_blank"
+            class="rounded group hover:bg-white transition-all duration-150 border border-[#86C232] bg-[#86C232] flex items-center px-10 py-3"
+          >
+            <p class="uppercase font-bold group-hover:text-[#86C232]">
+              Заказать игру
+            </p>
+            <svg
+              class="ml-3"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                class="group-hover:fill-[#86C232]"
+                d="M0 8C0 5.87827 0.842855 3.84344 2.34315 2.34315C3.84344 0.842854 5.87827 0 8 0C10.1217 0 12.1566 0.842854 13.6569 2.34315C15.1571 3.84344 16 5.87827 16 8C16 10.1217 15.1571 12.1566 13.6569 13.6569C12.1566 15.1571 10.1217 16 8 16C5.87827 16 3.84344 15.1571 2.34315 13.6569C0.842855 12.1566 0 10.1217 0 8ZM7.53125 4.21875C7.2375 3.925 6.7625 3.925 6.47188 4.21875C6.18125 4.5125 6.17813 4.9875 6.47188 5.27812L9.19063 7.99687L6.47188 10.7156C6.17813 11.0094 6.17813 11.4844 6.47188 11.775C6.76562 12.0656 7.24062 12.0688 7.53125 11.775L10.7812 8.53125C11.075 8.2375 11.075 7.7625 10.7812 7.47188L7.53125 4.21875Z"
+                fill="white"
+              ></path>
+            </svg>
+          </a>
+        </div>
+
+        <i
+          class="mobile-menu-btn fa-solid fa-bars text-white text-3xl cursor-pointer xl:hidden"
+        ></i>
+        <ul
+          class="mobileMenu absolute top-24 right-5 hidden flex-col xl:flex-row flex items-center z-50 bg-[rgba(124,124,124,0.9)] justify-between w-auto p-3 rounded-lg uppercase font-normal"
+        >
+          <li class="mt-1"><a href="index.html">площадки</a></li>
+          <li class="mt-1"><a href="strikeball.html">страйкбол</a></li>
+          <li class="mt-1"><a href="paintball.html">пейнтбол</a></li>
+          <li class="mt-1"><a href="lazertag.html">лазертаг</a></li>
+          <li class="mt-1"><a href="orbiz.html">орбиз</a></li>
+          <!-- <li class="mt-1"><a href="#contacts">услуги</a></li> -->
+          <li class="mt-1"><a href="events.html">игры</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="block2 bg-[#222629BD] mt-5">
+      <div
+        class="container px-3.5 md:px-0 sm: py-0 md:w-full md:py-0 lg:w-full mx-auto"
+      >
+        <div class="relative flex flex-wrap justify-between">
+          <div class="w-full xl:w-1/2 flex flex-col items-start py-8">
+            <div class="flex w-full">
+              <h1
+                class="text-3xl uppercase xl:text-7xl font-bold wow animate__animated delay-2 animate__fadeIn"
+              >
+                Уличная карта CQB
+              </h1>
+            </div>
+            <p
+              class="text-base xl:text-lg mt-10 wow animate__animated delay-3 animate__fadeIn"
+            >
+              Уличная карта CQB – первая и единственная карта в городе,
+              специально созданная для проведения Чемпионата Республики
+              Казахстан по страйкболу. Эта карта уникальна своими разнообразными
+              строениями, фланговыми проходами, автомобилями и вышками с обеих
+              сторон. Постройки выполнены в виде деревянных домиков, что создает
+              атмосферу деревни.
+            </p>
+
+            <a
+              href=""
+              class="wow animate__animated delay-4 animate__fadeIn group hover:bg-white transition-all duration-150 border border-[#86C232] mt-10 bg-[#86C232] flex items-center px-10 py-3"
+            >
+              <p class="uppercase font-bold group-hover:text-[#86C232]">
+                Подробнее
+              </p>
+              <svg
+                class="ml-3"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  class="group-hover:fill-[#86C232]"
+                  d="M0 8C0 5.87827 0.842855 3.84344 2.34315 2.34315C3.84344 0.842854 5.87827 0 8 0C10.1217 0 12.1566 0.842854 13.6569 2.34315C15.1571 3.84344 16 5.87827 16 8C16 10.1217 15.1571 12.1566 13.6569 13.6569C12.1566 15.1571 10.1217 16 8 16C5.87827 16 3.84344 15.1571 2.34315 13.6569C0.842855 12.1566 0 10.1217 0 8ZM7.53125 4.21875C7.2375 3.925 6.7625 3.925 6.47188 4.21875C6.18125 4.5125 6.17813 4.9875 6.47188 5.27812L9.19063 7.99687L6.47188 10.7156C6.17813 11.0094 6.17813 11.4844 6.47188 11.775C6.76562 12.0656 7.24062 12.0688 7.53125 11.775L10.7812 8.53125C11.075 8.2375 11.075 7.7625 10.7812 7.47188L7.53125 4.21875Z"
+                  fill="white"
+                ></path>
+              </svg>
+            </a>
+          </div>
+
+          <div
+            class="w-full xl:w-[500px] hidden xl:flex wow animate__animated delay-4 animate__fadeInRight"
+          >
+            <img
+              src="images/price.png"
+              class="w-full h-[500px] object-top object-cover"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block3 mt-10 relative">
+      <div
+        class="container px-3.5 md:px-0 sm: py-0 md:w-full md:py-0 lg:w-full mx-auto"
+      >
+        <div
+          class="wow animate__animated delay-2 animate__fadeIn title flex items-start w-full xl:w-1/2"
+        >
+          <svg
+            class="hidden xl:block"
+            width="17"
+            height="115"
+            viewBox="0 0 17 132"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              y="0.0905762"
+              width="17"
+              height="131.175"
+              fill="url(#paint0_linear_10_47)"
+            ></rect>
+            <defs>
+              <linearGradient
+                id="paint0_linear_10_47"
+                x1="8.5"
+                y1="0.0905762"
+                x2="8.5"
+                y2="131.266"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#86C232" stop-opacity="0"></stop>
+                <stop offset="1" stop-color="#86C232"></stop>
+              </linearGradient>
+            </defs>
+          </svg>
+          <p
+            class="text-3xl xl:text-6xl font-bold w-full ml-0 xl:ml-3 uppercase"
+          >
+            Описание карты CQB
+          </p>
+        </div>
+
+        <div
+          class="w-full flex flex-col flex-wrap xl:flex-row justify-between items-start mt-10"
+        >
+          <div class="slider-catalog w-full slider">
+            <div class="block">
+              <img
+                class="w-full object-cover object-top relative rounded-lg"
+                src="images/dust1.jpg"
+                alt=""
+              />
+            </div>
+            <div class="block">
+              <img
+                class="w-full object-cover object-top relative rounded-lg"
+                src="images/dust2.jpg"
+                alt=""
+              />
+            </div>
+
+            <div class="block">
+              <img
+                class="w-full object-cover object-top relative rounded-lg"
+                src="images/dust5.jpg"
+                alt=""
+              />
+            </div>
+            <div class="block">
+              <img
+                class="w-full object-cover object-top relative rounded-lg"
+                src="images/dust6.jpg"
+                alt=""
+              />
+            </div>
+
+            <div class="block">
+              <img
+                class="w-full object-cover object-top relative rounded-lg"
+                src="images/dust7.jpg"
+                alt=""
+              />
+            </div>
+            <div class="block">
+              <img
+                class="w-full object-cover object-top relative rounded-lg"
+                src="images/dust8.jpg"
+                alt=""
+              />
+            </div>
+            <div class="block">
+              <img
+                class="w-full object-cover object-top relative rounded-lg"
+                src="images/dust9.jpg"
+                alt=""
+              />
+            </div>
+
+            <div class="block">
+              <img
+                class="w-full object-cover object-top relative rounded-lg"
+                src="images/dust10.jpg"
+                alt=""
+              />
+            </div>
+            <div class="block">
+              <img
+                class="w-full object-cover object-top relative rounded-lg"
+                src="images/dust11.jpg"
+                alt=""
+              />
+            </div>
+            <div class="block">
+              <img
+                class="w-full object-cover object-top relative rounded-lg"
+                src="images/dust12.jpg"
+                alt=""
+              />
+            </div>
+            <div class="block">
+              <img
+                class="w-full object-cover object-top relative rounded-lg"
+                src="images/dust13.jpg"
+                alt=""
+              />
+            </div>
+
+            <div class="block">
+              <img
+                class="w-full object-cover object-top relative rounded-lg"
+                src="images/dust14.jpg"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="mt-20 wow animate__animated delay-2 animate__fadeIn title flex items-start w-full"
+        >
+          <p class="text-3xl font-bold w-full uppercase">
+            Наши услуги для карты CQB (все включают неограниченное количество
+            боеприпасов)
+          </p>
+        </div>
+
+        <div
+          class="w-full flex flex-col flex-wrap xl:flex-row justify-between items-start mt-10"
+        >
+          <div
+            class="mb-5 relative flex flex-col w-full xl:w-[48%] px-11 py-10 h-[400px] border border-[#ccc]"
+          >
+            <svg
+              width="60"
+              height="60"
+              viewBox="0 0 60 60"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M58.0849 5.83979H57.4465V2.71559C57.4465 1.69077 56.5783 0.841064 55.5314 0.841064C54.4846 0.841064 53.6163 1.69077 53.6163 2.71559V5.83979H9.56914C8.90521 5.83979 8.26684 6.18973 7.93489 6.73954L6.32621 9.38886L3.26216 6.38958C2.52156 5.66481 1.29595 5.66481 0.55534 6.38958C-0.185113 7.11449 -0.185113 8.31414 0.55534 9.0389L4.28344 12.688L0.274485 19.2364C-0.108432 19.8612 -0.0830255 20.636 0.325605 21.2608L5.43253 28.7589C5.79006 29.2588 6.37731 29.5837 7.01567 29.5837H9.7479L8.5477 34.8574C8.31796 35.8572 8.95633 36.8568 10.0032 37.0818C11.0246 37.3067 12.0459 36.6568 12.2758 35.6572L13.6546 29.5837H22.4897L18.251 48.329H9.41593L10.616 42.9553C10.8459 41.9556 10.2075 40.9558 9.16066 40.7308C8.1392 40.506 7.11776 41.1308 6.88803 42.1555C6.88803 42.1555 5.15949 49.7692 5.15172 49.8034C5.12415 49.9249 5.10058 50.0786 5.10058 50.2035V57.7016C5.10058 58.7262 5.96883 59.5761 7.01567 59.5761H21.0597C24.226 59.5761 26.805 57.0517 26.805 53.9525C26.805 51.2282 24.7878 48.9288 22.1577 48.4289L24.1495 39.5812H31.9375C34.6186 39.5812 37.0188 38.1315 38.2189 35.7821L41.3853 29.5837H44.0409C47.2071 29.5837 49.7862 27.0594 49.7862 23.9602C49.7862 23.3103 49.6841 22.6605 49.4542 22.0857H58.0849C59.1317 22.0857 60 21.2358 60 20.2111V7.71431C60 6.6895 59.1317 5.83979 58.0849 5.83979ZM22.9748 53.9525C22.9748 54.9772 22.1066 55.8271 21.0597 55.8271H8.93077V52.078H21.0597C22.1066 52.078 22.9748 52.9277 22.9748 53.9525ZM31.9119 9.58884H35.7421V18.3366H31.9119V9.58884ZM24.2515 9.58884H28.0817V18.3366H24.2515V9.58884ZM5.27935 18.3366L10.6416 9.58884H20.4213V18.3366H5.27935ZM34.7973 34.0826C34.2611 35.1573 33.1631 35.8322 31.9375 35.8322H25.0175L26.4219 29.5837H29.3585V30.2086C29.3585 31.2332 30.2267 32.0831 31.2736 32.0831C32.3204 32.0831 33.1887 31.2332 33.1887 30.2086V29.5837H37.0955L34.7973 34.0826ZM44.0409 25.8347H8.03711L5.48365 22.0857H44.0409C45.0877 22.0857 45.956 22.9354 45.956 23.9602C45.956 24.9848 45.0877 25.8347 44.0409 25.8347ZM56.1698 18.3366H39.5723V9.58884H56.1698V18.3366Z"
+                fill="#86C232"
+              ></path>
+            </svg>
+            <p class="text-xl font-bold uppercase mt-10">Пейнтбол</p>
+            <p class="text-white text-lg w-full mt-5">
+              - 6000 тг (от 10 лет, 100 шаров на 2 часа игры)
+            </p>
+          </div>
+
+          <div
+            class="mb-5 relative flex flex-col border border-[#ccc] w-full xl:w-[48%] px-11 py-10 h-[400px]"
+          >
+            <svg
+              width="60"
+              height="60"
+              viewBox="0 0 60 60"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M24.2553 49.2776V25.2062C24.2553 24.1813 23.3872 23.3315 22.3404 23.3315H21.7021V15.7076C21.7021 10.0584 19.1234 4.78411 14.6042 1.23468C13.8894 0.709859 12.9191 0.709859 12.2043 1.23468C7.68513 4.78413 5.10638 10.0584 5.10638 15.7076V23.3315H4.46808C3.42135 23.3315 2.55319 24.1813 2.55319 25.2062V32.7051C2.55319 33.7299 3.42135 34.5798 4.46808 34.5798C5.51482 34.5798 6.38298 33.7299 6.38298 32.7051V27.0809H20.4255V40.8289H6.38298V40.204C6.38298 39.1791 5.51482 38.3293 4.46808 38.3293C3.42135 38.3293 2.55319 39.1791 2.55319 40.204V49.2776C1.02133 50.3024 0 52.0022 0 53.9519C0 57.0515 2.57875 59.5761 5.74468 59.5761H12.1277C13.1744 59.5761 14.0426 58.7262 14.0426 57.7014C14.0426 56.6765 13.1744 55.8267 12.1277 55.8267H5.74468C4.69795 55.8267 3.82979 54.9767 3.82979 53.9519C3.82979 52.927 4.69795 52.0772 5.74468 52.0772H21.0638C22.1106 52.0772 22.9787 52.927 22.9787 53.9519C22.9787 54.9767 22.1106 55.8267 21.0638 55.8267H19.7872C18.7405 55.8267 17.8723 56.6765 17.8723 57.7014C17.8723 58.7262 18.7405 59.5761 19.7872 59.5761H21.0638C24.2298 59.5761 26.8085 57.0515 26.8085 53.9519C26.8085 52.0022 25.7872 50.3024 24.2553 49.2776ZM17.8723 23.3315H8.93617V19.582H17.8723V23.3315ZM17.8723 15.8326H8.93617V15.7076C8.93617 11.7332 10.5447 7.98373 13.4043 5.20917C16.2638 7.98373 17.8723 11.7332 17.8723 15.7076V15.8326ZM20.4255 48.3278H6.38298V44.5783H20.4255V48.3278Z"
+                fill="#86C232"
+              ></path>
+              <path
+                d="M58.0851 29.5807C59.1318 29.5807 60 28.7308 60 27.706V21.4569C60 14.233 54.0001 8.33386 46.5958 8.33386C39.1914 8.33386 33.1915 14.233 33.1915 21.4569V42.7038C33.1915 43.7285 34.0597 44.5785 35.1064 44.5785H35.7447V48.3279H35.1064C34.0597 48.3279 33.1915 49.1777 33.1915 50.2027V57.7015C33.1915 58.7263 34.0597 59.5763 35.1064 59.5763H40.2128C41.2595 59.5763 42.1277 58.7263 42.1277 57.7015C42.1277 56.6766 41.2595 55.8268 40.2128 55.8268H37.0213V52.0774H56.1702V55.8268H47.8723C46.8256 55.8268 45.9575 56.6766 45.9575 57.7015C45.9575 58.7263 46.8256 59.5763 47.8723 59.5763H58.0851C59.1318 59.5763 60 58.7263 60 57.7015V50.2027C60 49.1777 59.1318 48.3279 58.0851 48.3279H57.4468V44.5785H58.0851C59.1318 44.5785 60 43.7285 60 42.7038V35.2049C60 34.18 59.1318 33.3302 58.0851 33.3302C57.0384 33.3302 56.1702 34.18 56.1702 35.2049V40.829H37.0213V24.5815H56.1702V27.706C56.1702 28.7308 57.0384 29.5807 58.0851 29.5807ZM39.5745 44.5785H53.617V48.3279H39.5745V44.5785ZM37.098 20.832C37.4297 15.9577 41.5405 12.0833 46.5958 12.0833C51.651 12.0833 55.7618 15.9577 56.0935 20.832H37.098Z"
+                fill="#86C232"
+              ></path>
+            </svg>
+
+            <p class="text-xl font-bold uppercase mt-10">Страйкбол</p>
+            <p class="text-white text-lg w-full mt-5">
+              - 7000 тг (от 18 лет, 500 шаров на 2 часа игры).
+            </p>
+          </div>
+        </div>
+        <div
+          class="mt-20 wow animate__animated delay-2 animate__fadeIn title flex flex-col items-start w-full"
+        >
+          <p class="text-3xl font-bold w-full uppercase">Удобства</p>
+          <p>Игровая зона стилизована под городскую улицу и включает:</p>
+        </div>
+
+        <div class="flex flex-wrap flex-col lg:flex-row justify-between mt-10">
+          <div
+            class="flex items-start w-full mb-5 lg:mb-0 lg:w-[24%] border p-7 rounded-xl"
+          >
+            <i class="fa-solid fa-person-shelter text-3xl lg:text-6xl"></i>
+            <p class="ml-5 w-full">
+              Большие и интересные игровые зоны: Пространство карты позволяет
+              разнообразить тактические ходы и стратегии.
+            </p>
+          </div>
+
+          <div
+            class="flex items-start w-full mb-5 lg:mb-0 lg:w-[24%] border p-7 rounded-xl"
+          >
+            <i class="fa-solid fa-gun text-3xl lg:text-6xl"></i>
+            <p class="ml-5 w-full">
+              Комфортные комнаты отдыха: Места для отдыха обеспечат уют и
+              восстановление сил между играми.
+            </p>
+          </div>
+
+          <div
+            class="flex items-start w-full mb-5 lg:mb-0 lg:w-[24%] border p-7 rounded-xl"
+          >
+            <i class="fa-solid fa-restroom text-3xl lg:text-6xl"></i>
+            <p class="ml-5 w-full">
+              Брифинг-рум: Специальная комната для планирования тактики команды.
+            </p>
+          </div>
+
+          <div
+            class="flex items-start w-full mb-5 lg:mb-0 lg:w-[24%] border p-7 rounded-xl"
+          >
+            <i class="fa-solid fa-globe text-3xl lg:text-6xl"></i>
+            <p class="ml-5 w-full">
+              Раздевалки и все необходимое: Удобные раздевалки и другие удобства
+              для комфортного пребывания.
+            </p>
+          </div>
+        </div>
+        <p class="mt-5">
+          Полигон представляет собой детализированную улицу с двумя стартовыми
+          базами, банком, лабиринтом и двумя комнатами с кнопкой взрыва, что
+          обеспечивает сложность и динамичность игры даже для опытных игроков.
+        </p>
+
+        <div
+          class="mt-20 wow animate__animated delay-2 animate__fadeIn title flex flex-col items-start w-full"
+        >
+          <p class="text-3xl font-bold w-full uppercase">Преимущества</p>
+        </div>
+
+        <nav>
+          <ul>
+            <li>- Именинник играет бесплатно</li>
+            <li>
+              - Банкетная зона на 15-20 человек: час в подарок во время игры.
+            </li>
+            <li>- Фото-зона для именинника на память.</li>
+            <li>- Бесплатная боевая защита для всех игроков.</li>
+            <li>- 16 видеокамер на площадке для обеспечения безопасности</li>
+            <li>- Разрешены свои еда и напитки (алкоголь запрещен).</li>
+            <li>- Скидка 10% студентам по вторникам.</li>
+            <li>
+              - Опытные инструкторы обеспечат безопасность и увлекательность
+              игры.
+            </li>
+            <li>
+              - Открытые игры по страйкболу два раза в неделю, доступные для
+              всех желающих.
+            </li>
+            <li>- Бесплатная вода от @asar_su для всех игроков.</li>
+            <li>- Бонус от шеф-повара при заказе в @qazanok.kz.</li>
+          </ul>
+        </nav>
+
+        <div
+          class="mt-20 wow animate__animated delay-2 animate__fadeIn title flex flex-col items-start w-full"
+        >
+          <p class="text-3xl font-bold w-full uppercase">Контакты:</p>
+        </div>
+
+        <p class="mt-5">
+          Для справок и записи звоните:
+          <a href="tel:+7 701 575 5333" class="font-bold underline"
+            >+7 701 575 5333</a
+          >
+        </p>
+      </div>
+    </div>
+
+    <!-- <div class="block4 mt-10">
+      <div
+        class="container px-3.5 md:px-0 sm: py-0 md:w-full md:py-0 lg:w-full mx-auto"
+      >
+        <div class="title flex items-start w-full xl:w-1/2">
+          <svg
+            class="hidden xl:block"
+            width="17"
+            height="55"
+            viewBox="0 0 17 132"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              y="0.0905762"
+              width="17"
+              height="131.175"
+              fill="url(#paint0_linear_10_47)"
+            ></rect>
+            <defs>
+              <linearGradient
+                id="paint0_linear_10_47"
+                x1="8.5"
+                y1="0.0905762"
+                x2="8.5"
+                y2="131.266"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stop-color="#86C232" stop-opacity="0"></stop>
+                <stop offset="1" stop-color="#86C232"></stop>
+              </linearGradient>
+            </defs>
+          </svg>
+          <p
+            class="text-3xl xl:text-6xl font-bold w-full ml-0 xl:ml-3 uppercase"
+          >
+            Как добраться
+          </p>
+        </div>
+
+        <iframe
+          class="mt-5"
+          id="map_463526475"
+          frameborder="0"
+          width="100%"
+          height="600px"
+          sandbox="allow-modals allow-forms allow-scripts allow-same-origin allow-popups allow-top-navigation-by-user-activation"
+        ></iframe>
+        <script type="text/javascript">
+          (function (e, t) {
+            var r = document.getElementById(e);
+            r.contentWindow.document.open(),
+              r.contentWindow.document.write(atob(t)),
+              r.contentWindow.document.close();
+          })(
+            "map_463526475",
+            "PGJvZHk+PHN0eWxlPgogICAgICAgIGh0bWwsIGJvZHkgewogICAgICAgICAgICBtYXJnaW46IDA7CiAgICAgICAgICAgIHBhZGRpbmc6IDA7CiAgICAgICAgfQogICAgICAgIGh0bWwsIGJvZHksICNtYXAgewogICAgICAgICAgICB3aWR0aDogMTAwJTsKICAgICAgICAgICAgaGVpZ2h0OiAxMDAlOwogICAgICAgIH0KICAgICAgICAuYnVsbGV0LW1hcmtlciB7CiAgICAgICAgICAgIHdpZHRoOiAyMHB4OwogICAgICAgICAgICBoZWlnaHQ6IDIwcHg7CiAgICAgICAgICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgICAgIGJhY2tncm91bmQtY29sb3I6ICNmZmY7CiAgICAgICAgICAgIGJveC1zaGFkb3c6IDAgMXB4IDNweCAwIHJnYmEoMCwgMCwgMCwgMC4yKTsKICAgICAgICAgICAgYm9yZGVyOiA0cHggc29saWQgIzAyODFmMjsKICAgICAgICAgICAgYm9yZGVyLXJhZGl1czogNTAlOwogICAgICAgIH0KICAgICAgICAucGVybWFuZW50LXRvb2x0aXAgewogICAgICAgICAgICBiYWNrZ3JvdW5kOiBub25lOwogICAgICAgICAgICBib3gtc2hhZG93OiBub25lOwogICAgICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgICAgIHBhZGRpbmc6IDZweCAxMnB4OwogICAgICAgICAgICBjb2xvcjogIzI2MjYyNjsKICAgICAgICB9CiAgICAgICAgLnBlcm1hbmVudC10b29sdGlwOmJlZm9yZSB7CiAgICAgICAgICAgIGRpc3BsYXk6IG5vbmU7CiAgICAgICAgfQogICAgICAgIC5kZy1wb3B1cF9oaWRkZW5fdHJ1ZSB7CiAgICAgICAgICAgIGRpc3BsYXk6IGJsb2NrOwogICAgICAgIH0KICAgICAgICAubGVhZmxldC1jb250YWluZXIgLmxlYWZsZXQtcG9wdXAgLmxlYWZsZXQtcG9wdXAtY2xvc2UtYnV0dG9uIHsKICAgICAgICAgICAgdG9wOiAwOwogICAgICAgICAgICByaWdodDogMDsKICAgICAgICAgICAgd2lkdGg6IDIwcHg7CiAgICAgICAgICAgIGhlaWdodDogMjBweDsKICAgICAgICAgICAgZm9udC1zaXplOiAyMHB4OwogICAgICAgICAgICBsaW5lLWhlaWdodDogMTsKICAgICAgICB9CiAgICA8L3N0eWxlPjxkaXYgaWQ9Im1hcCI+PC9kaXY+PHNjcmlwdCB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiIHNyYz0iaHR0cHM6Ly9tYXBzLmFwaS4yZ2lzLnJ1LzIuMC9sb2FkZXIuanM/cGtnPWZ1bGwmYW1wO3NraW49bGlnaHQiPjwvc2NyaXB0PjxzY3JpcHQ+KGZ1bmN0aW9uKGUpe3ZhciB0PUpTT04ucGFyc2UoZSkscj10Lm9yZGVyZWRHZW9tZXRyaWVzLG49dC5tYXBQb3NpdGlvbixhPXQuaXNXaGVlbFpvb21FbmFibGVkO2Z1bmN0aW9uIG8oZSl7cmV0dXJuIGRlY29kZVVSSUNvbXBvbmVudChhdG9iKGUpLnNwbGl0KCIiKS5tYXAoZnVuY3Rpb24oZSl7cmV0dXJuIiUiKygiMDAiK2UuY2hhckNvZGVBdCgwKS50b1N0cmluZygxNikpLnNsaWNlKC0yKX0pLmpvaW4oIiIpKX1ERy50aGVuKGZ1bmN0aW9uKCl7dmFyIGU9REcubWFwKCJtYXAiLHtjZW50ZXI6W24ubGF0LG4ubG9uXSx6b29tOm4uem9vbSxzY3JvbGxXaGVlbFpvb206YSx6b29tQ29udHJvbDohYX0pO0RHLmdlb0pTT04ocix7c3R5bGU6ZnVuY3Rpb24oZSl7dmFyIHQscixuLGEsbztyZXR1cm57ZmlsbENvbG9yOm51bGw9PT0odD1lKXx8dm9pZCAwPT09dD92b2lkIDA6dC5wcm9wZXJ0aWVzLmZpbGxDb2xvcixmaWxsT3BhY2l0eTpudWxsPT09KHI9ZSl8fHZvaWQgMD09PXI/dm9pZCAwOnIucHJvcGVydGllcy5maWxsT3BhY2l0eSxjb2xvcjpudWxsPT09KG49ZSl8fHZvaWQgMD09PW4/dm9pZCAwOm4ucHJvcGVydGllcy5zdHJva2VDb2xvcix3ZWlnaHQ6bnVsbD09PShhPWUpfHx2b2lkIDA9PT1hP3ZvaWQgMDphLnByb3BlcnRpZXMuc3Ryb2tlV2lkdGgsb3BhY2l0eTpudWxsPT09KG89ZSl8fHZvaWQgMD09PW8/dm9pZCAwOm8ucHJvcGVydGllcy5zdHJva2VPcGFjaXR5fX0scG9pbnRUb0xheWVyOmZ1bmN0aW9uKGUsdCl7cmV0dXJuInJhZGl1cyJpbiBlLnByb3BlcnRpZXM/REcuY2lyY2xlKHQsZS5wcm9wZXJ0aWVzLnJhZGl1cyk6REcubWFya2VyKHQse2ljb246ZnVuY3Rpb24oZSl7cmV0dXJuIERHLmRpdkljb24oe2h0bWw6IjxkaXYgY2xhc3M9J2J1bGxldC1tYXJrZXInIHN0eWxlPSdib3JkZXItY29sb3I6ICIrZSsiOyc+PC9kaXY+IixjbGFzc05hbWU6Im92ZXJyaWRlLWRlZmF1bHQiLGljb25TaXplOlsyMCwyMF0saWNvbkFuY2hvcjpbMTAsMTBdfSl9KGUucHJvcGVydGllcy5jb2xvcil9KX0sb25FYWNoRmVhdHVyZTpmdW5jdGlvbihlLHQpe2UucHJvcGVydGllcy5kZXNjcmlwdGlvbiYmdC5iaW5kUG9wdXAobyhlLnByb3BlcnRpZXMuZGVzY3JpcHRpb24pLHtjbG9zZUJ1dHRvbjohMCxjbG9zZU9uRXNjYXBlS2V5OiEwfSksZS5wcm9wZXJ0aWVzLnRpdGxlJiZ0LmJpbmRUb29sdGlwKG8oZS5wcm9wZXJ0aWVzLnRpdGxlKSx7cGVybWFuZW50OiEwLG9wYWNpdHk6MSxjbGFzc05hbWU6InBlcm1hbmVudC10b29sdGlwIn0pfX0pLmFkZFRvKGUpfSl9KSgneyJvcmRlcmVkR2VvbWV0cmllcyI6W3sidHlwZSI6IkZlYXR1cmUiLCJwcm9wZXJ0aWVzIjp7ImNvbG9yIjoiIzAyODFmMiIsInRpdGxlIjoiIiwiZGVzY3JpcHRpb24iOiIiLCJ6SW5kZXgiOjEwMDAwMDAwMDB9LCJnZW9tZXRyeSI6eyJ0eXBlIjoiUG9pbnQiLCJjb29yZGluYXRlcyI6WzcxLjc2NTk4OSw1MS4wODUzOTNdfSwiaWQiOjcwMX1dLCJtYXBQb3NpdGlvbiI6eyJsYXQiOjUxLjA4NTYwMTk1MjA2MjExLCJsb24iOjcxLjc2NjAyNjYxNjA5NjUxLCJ6b29tIjoxOH0sImlzV2hlZWxab29tRW5hYmxlZCI6dHJ1ZX0nKTwvc2NyaXB0PjxzY3JpcHQgYXN5bmM9IiIgdHlwZT0idGV4dC9qYXZhc2NyaXB0IiBzcmM9Imh0dHBzOi8vd3d3Lmdvb2dsZXRhZ21hbmFnZXIuY29tL2d0YWcvanM/aWQ9VUEtMTU4ODY2MTY4LTEiPjwvc2NyaXB0PjxzY3JpcHQgdHlwZT0idGV4dC9qYXZhc2NyaXB0Ij4oZnVuY3Rpb24oZSl7ZnVuY3Rpb24gdCgpe2RhdGFMYXllci5wdXNoKGFyZ3VtZW50cyl9d2luZG93LmRhdGFMYXllcj13aW5kb3cuZGF0YUxheWVyfHxbXSx0KCJqcyIsbmV3IERhdGUpLHQoImNvbmZpZyIsZSksd2luZG93Lmd0YWc9dH0pKCdVQS0xNTg4NjYxNjgtMScpPC9zY3JpcHQ+PC9ib2R5Pg=="
+          );
+        </script>
+      </div>
+    </div> -->
+
+    <footer class="bg-[#222629BD] mt-10" id="contacts">
+      <div
+        class="container mx-auto px-3.5 md:px-0 sm: py-0 md:w-full md:py-0 lg:w-full"
+      >
+        <div class="flex flex-col lg:flex-row justify-between pt-10 py-5">
+          <a href="index.html" class="logo flex flex-col mt-5 xl:mt-0">
+            <img class="w-32" src="images/logo barys.png" alt="" />
+          </a>
+
+          <div class="flex flex-col mt-5 xl:mt-0">
+            <p class="uppercase text-3xl font-bold">Контакты</p>
+            <p class="text-[#767A7C] text-base mb-3">
+              Адрес: ул. Караменде би Шакаулы, 5, Nur-Sultan 010000
+            </p>
+            <object class="text-[#767A7C] text-base mb-3 w-full lg:w-96">
+              Вы можете обращаться по телефоному номеру:
+              <a href="tel:+77015755333" class="text-white underline"
+                >+7 701 575 5333 </a
+              ><br />
+              <br />
+
+              Email:
+              <a
+                href="mailto:barysairsoft@gmail.com"
+                class="text-white underline"
+                >barysairsoft@gmail.com
+              </a>
+            </object>
+          </div>
+
+          <div class="flex flex-col mt-5 xl:mt-0">
+            <p class="uppercase text-2xl font-bold">Социальные сети</p>
+            <div class="flex items-center flex-wrap mt-2">
+              <a href="https://www.instagram.com/barys.club.astana/">
+                <i class="fa-brands fa-instagram text-4xl"></i>
+              </a>
+
+              <a class="ml-5" href="https://wa.me/+77015755333">
+                <i class="fa-brands fa-whatsapp text-4xl"></i>
+              </a>
+
+              <a class="ml-5" href="mailto:barysairsoft@gmail.com">
+                <i class="fa-solid fa-envelope text-4xl"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="flex flex-col mt-5 xl:mt-0">
+            <div class="flex items-center">
+              <a
+                href="https://wa.me/+77015755333"
+                target="_blank"
+                class="rounded group hover:bg-white transition-all duration-150 border border-[#86C232] bg-[#86C232] flex items-center px-10 py-3"
+              >
+                <p class="uppercase font-bold group-hover:text-[#86C232]">
+                  Заказать игру
+                </p>
+                <svg
+                  class="ml-3"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    class="group-hover:fill-[#86C232]"
+                    d="M0 8C0 5.87827 0.842855 3.84344 2.34315 2.34315C3.84344 0.842854 5.87827 0 8 0C10.1217 0 12.1566 0.842854 13.6569 2.34315C15.1571 3.84344 16 5.87827 16 8C16 10.1217 15.1571 12.1566 13.6569 13.6569C12.1566 15.1571 10.1217 16 8 16C5.87827 16 3.84344 15.1571 2.34315 13.6569C0.842855 12.1566 0 10.1217 0 8ZM7.53125 4.21875C7.2375 3.925 6.7625 3.925 6.47188 4.21875C6.18125 4.5125 6.17813 4.9875 6.47188 5.27812L9.19063 7.99687L6.47188 10.7156C6.17813 11.0094 6.17813 11.4844 6.47188 11.775C6.76562 12.0656 7.24062 12.0688 7.53125 11.775L10.7812 8.53125C11.075 8.2375 11.075 7.7625 10.7812 7.47188L7.53125 4.21875Z"
+                    fill="white"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+  </body>
+</html>
